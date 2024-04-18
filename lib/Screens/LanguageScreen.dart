@@ -10,16 +10,6 @@ class LanguageScreen extends StatefulWidget {
 }
 
 class _LanguageScreenState extends State<LanguageScreen> {
-  List<String> tabtitle = [
-    "Home",
-    "Latest",
-    "News",
-    "Elections",
-    "Sports",
-    "Entertainment",
-    "Technology",
-    "Business"
-  ];
 
   @override
   void initState() {

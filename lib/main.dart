@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mydiary/DemoTesting/Flipcard.dart';
+import 'package:mydiary/DemoTesting/Pageviewwithdots.dart';
+import 'package:mydiary/DemoTesting/notification.dart';
 import 'package:mydiary/Screens/DashBorad/dashboard.dart';
 import 'package:mydiary/Screens/Home/home_screen.dart';
 import 'package:mydiary/Screens/LanguageScreen.dart';
+import 'package:mydiary/Screens/Splash.dart';
 import 'package:mydiary/Screens/UserProfileScreen.dart';
 
 import 'Screens/Home/Profile.dart';
@@ -24,7 +28,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: const UserProfile(),
+      home: const LanguageScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

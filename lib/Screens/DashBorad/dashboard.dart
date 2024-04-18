@@ -47,15 +47,16 @@ class _DashboardState extends State<Dashboard>
     "A thinker sees his own actions as experiments and questions--as attempts to find out something. Success and failure are for him answers above all."
   ];
   final List<String> imageslst = [
-    "https://www.pexels.com/photo/composition-of-different-conchs-on-beige-table-4226881/",
-    "https://www.pexels.com/photo/woman-talking-video-1426044/",
-    "https://www.pexels.com/photo/person-holding-microphone-33779/",
-    "https://www.pexels.com/photo/man-reading-a-newspaper-902194/",
-    "https://www.pexels.com/photo/turned-on-macbook-air-on-white-and-gray-surface-209726/",
-    "https://www.pexels.com/photo/retro-plastic-bobbin-with-film-3921000/",
-    "https://www.pexels.com/photo/composition-of-different-conchs-on-beige-table-4226881/",
-    "https://www.pexels.com/photo/woman-talking-video-1426044/",
-    "https://www.pexels.com/photo/person-holding-microphone-33779/",
+    "https://images.pexels.com/photos/21696/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/6185632/pexels-photo-6185632.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://i.pinimg.com/564x/fd/41/8a/fd418a758abc60cdfba6c915aa704352.jpg",
+    "https://images.unsplash.com/photo-1617251137884-f135eccf6942?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1592496431160-00dee11029cf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1vdGl2YXRpb25hbCUyMHF1b3Rlc3xlbnwwfHwwfHx8MA%3D%3D",
+    "https://images.unsplash.com/photo-1494178270175-e96de2971df9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1vdGl2YXRpb25hbCUyMHF1b3Rlc3xlbnwwfHwwfHx8MA%3D%3D",
+    "https://media.istockphoto.com/id/1372389444/photo/if-it-doesnt-challenge-you-it-doesnt-change-you.webp?b=1&s=170667a&w=0&k=20&c=vAFZxpxLKHNQgiJx_Q6grYiAhnBsJ7aS9JV0CYhkQTM=",
+    "https://media.istockphoto.com/id/1336153511/photo/change-begins-at-the-end-of-your-comfort-zone.webp?b=1&s=170667a&w=0&k=20&c=uTRjC1rKYMi6BPnH3DD8H9VMANeCXj1UFwtgBbfqnUM="
   ];
   late TabController _tabcontroller;
   int _currentIndex = 0;
@@ -150,7 +151,173 @@ class _DashboardState extends State<Dashboard>
 
             if (_currentIndex == 2) {
               return methodForAddPoem(context);
-            } else {
+            }
+            else if(_tabcontroller.index==1 && _currentIndex==0)
+              {
+                return  Container(child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                    itemCount: imageslst.length,
+                    itemBuilder: (context, index) {
+                  return Container(
+                    width: double.infinity,
+                    child: Card(
+                      color: Colors.black12,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.network(imageslst[index]),
+                          Container(
+                            color: Colors.white,
+                            height: 30,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    child: Icon(
+                                      CupertinoIcons.heart,
+                                      color: Colors.deepOrangeAccent,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.share,
+                                        color: Colors.deepOrangeAccent,
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      Icon(
+                                        Icons.save_alt,
+                                        color: Colors.deepOrangeAccent,
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+            ));
+              }
+            else if(_tabcontroller.index== 2 && _currentIndex==0)
+            {
+              return  Container(child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return Container(
+                    width: double.infinity,
+                    child: Card(
+                      color: Colors.black12,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          /*Image.asset("images/imagesss.jpg"),*/
+                          Image.network( "https://www.pexels.com/photo/composition-of-different-conchs-on-beige-table-4226881/"),
+                          Container(
+                            color: Colors.white,
+                            height: 30,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    child: Icon(
+                                      CupertinoIcons.heart,
+                                      color: Colors.deepOrangeAccent,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.share,
+                                        color: Colors.deepOrangeAccent,
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      Icon(
+                                        Icons.save_alt,
+                                        color: Colors.deepOrangeAccent,
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ));
+            }
+            else if(_tabcontroller.index== 3 && _currentIndex==0)
+            {
+              return Container(
+                color: Colors.white,
+                width: double.infinity,
+                height: double.infinity,
+                child: Card(
+                  color: Colors.black12,
+                  child: Container(
+                    color: Colors.white,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          height:200,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("images/imagesss.jpg"),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child:  Padding(
+                            padding: const EdgeInsets.all(0),
+                            child: TextField(
+                              maxLines: null, // Allow multiple lines of text
+                              expands: true, // Allow the TextField to expand vertically
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Enter your poem',
+                                hintStyle: TextStyle(color: Colors.black12),
+                              ),
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          child: Row(
+                            children: [
+                              ElevatedButton(onPressed: (){}, child: Text("Edit",style: TextStyle(color: Colors.white),),style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all<Color>(Colors.lightBlueAccent),
+                              ),),
+                              SizedBox(width: 220,),
+                              ElevatedButton(onPressed: (){}, child: Text("Post",style: TextStyle(color: Colors.white),),style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all<Color>(Colors.lightBlueAccent),
+                              ),)
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            }
+            else {
               return Container(
                 color: Colors.black26,
               );
@@ -253,6 +420,7 @@ class _DashboardState extends State<Dashboard>
                  mainAxisAlignment: MainAxisAlignment.start,
                  children: [
                    Image.asset("images/imagesss.jpg"),
+
                    Container(
                      color: Colors.white,
                      height: 30,

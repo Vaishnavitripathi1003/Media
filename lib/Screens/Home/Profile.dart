@@ -97,7 +97,7 @@ class _ProfileState extends State<Profile> {
                                 Column(
                                   children: [
                                     CircleAvatar(
-                                      backgroundColor: Colors.pinkAccent,
+                                      backgroundColor: Colors.blueAccent,
                                       child: Icon(
                                         Icons.tag,color: Colors.white,
                                       ),
@@ -112,7 +112,7 @@ class _ProfileState extends State<Profile> {
                                 Column(
                                   children: [
                                     CircleAvatar(
-                                      backgroundColor: Colors.pinkAccent,
+                                      backgroundColor: Colors.blueAccent,
                                       child: Icon(
                                           Icons.notifications_none_outlined,color: Colors.white,
                                       ),
@@ -127,7 +127,7 @@ class _ProfileState extends State<Profile> {
                                 Column(
                                   children: [
                                     CircleAvatar(
-                                      backgroundColor: Colors.pinkAccent,
+                                      backgroundColor: Colors.blueAccent,
                                       child: Icon(
                                           Icons.bookmark_border,
                                         color: Colors.white,
@@ -154,7 +154,7 @@ class _ProfileState extends State<Profile> {
                     child: Row(
                       children: [
                         CircleAvatar(
-                          backgroundColor:Colors.pinkAccent
+                          backgroundColor:Colors.blueAccent
                           ,child: Icon(
                               Icons.circle_outlined,
                             color: Colors.white,
@@ -206,7 +206,7 @@ class _ProfileState extends State<Profile> {
                     child: Row(
                       children: [
                         CircleAvatar(
-                          backgroundColor:Colors.pinkAccent
+                          backgroundColor:Colors.blueAccent
                           ,child: Icon(
                           Icons.group_rounded,
                           color: Colors.white,
@@ -233,7 +233,7 @@ class _ProfileState extends State<Profile> {
                     child: Row(
                       children: [
                         CircleAvatar(
-                          backgroundColor:Colors.pinkAccent
+                          backgroundColor:Colors.blueAccent
                           ,child: Icon(
                           Icons.settings,
                           color: Colors.white,

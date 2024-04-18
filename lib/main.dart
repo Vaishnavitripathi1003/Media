@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mydiary/DemoTesting/Flipcard.dart';
+import 'package:mydiary/DemoTesting/Pageviewwithdots.dart';
+import 'package:mydiary/DemoTesting/ShortsUi/homeshrts.dart';
+import 'package:mydiary/DemoTesting/notification.dart';
+import 'package:mydiary/Screens/DashBorad/dashboard.dart';
 import 'package:mydiary/Screens/Home/home_screen.dart';
+import 'package:mydiary/Screens/LanguageScreen.dart';
+import 'package:mydiary/Screens/Splash.dart';
+import 'package:mydiary/Screens/UserProfileScreen.dart';
 
 import 'Screens/Home/Profile.dart';
 import 'Screens/Home/Search.dart';
@@ -11,6 +19,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  //fjghfkjgh
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -20,7 +29,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: const Profile(),
+      home: const HomeShorts(                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ),
       debugShowCheckedModeBanner: false,
     );
   }

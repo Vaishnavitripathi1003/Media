@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mydiary/DataBase/DataBaseHelper.dart';
 import 'package:mydiary/Screens/Home/Profile.dart';
+import 'package:sqflite/sqflite.dart';
 
 import '../Home/Search.dart';
 
@@ -13,6 +15,7 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard>
     with SingleTickerProviderStateMixin {
+  final DatabaseHelper databaseHelper=DatabaseHelper();
   final List<String> tabTitles = [
     "Home",
     "Latest",
@@ -60,7 +63,9 @@ class _DashboardState extends State<Dashboard>
   ];
   late TabController _tabcontroller;
   int _currentIndex = 0;
+  DatabaseHelper dbHelper = DatabaseHelper();
 
+  // Initialize the database
   //late TabController _tabcontroller;
   @override
   void initState() {
@@ -76,6 +81,7 @@ class _DashboardState extends State<Dashboard>
     return DefaultTabController(
       length: tabTitles.length,
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.blue,
@@ -183,6 +189,10 @@ class _DashboardState extends State<Dashboard>
                                   Row(
                                     children: [
                                       Icon(
+                                        Icons.comment,
+                                        color: Colors.deepOrangeAccent,
+                                      ),
+                                      Icon(
                                         Icons.share,
                                         color: Colors.deepOrangeAccent,
                                       ),
@@ -237,6 +247,10 @@ class _DashboardState extends State<Dashboard>
                                   ),
                                   Row(
                                     children: [
+                                      Icon(
+                                        Icons.share,
+                                        color: Colors.deepOrangeAccent,
+                                      ),
                                       Icon(
                                         Icons.share,
                                         color: Colors.deepOrangeAccent,
@@ -437,6 +451,54 @@ class _DashboardState extends State<Dashboard>
                            ),
                            Row(
                              children: [
+                               GestureDetector(
+                                child: Icon(
+                                   Icons.comment,
+                                   color: Colors.deepOrangeAccent,
+                                 ),
+                                 onTap: (){
+                                   showModalBottomSheet(
+                                     context: context,
+                                     builder: (BuildContext context) {
+                                       return Container(
+                                         padding: EdgeInsets.all(16.0),
+                                         child: Column(
+                                           mainAxisSize: MainAxisSize.min,
+                                           crossAxisAlignment: CrossAxisAlignment.start,
+                                           children: <Widget>[
+                                             Text(
+                                               'Add a comment',
+                                               style: TextStyle(
+                                                 fontSize: 20,
+                                                 fontWeight: FontWeight.bold,
+                                               ),
+                                             ),
+                                             SizedBox(height: 10),
+                                             TextField(
+                                               decoration: InputDecoration(
+                                                 hintText: 'Enter your comment...',
+                                                 border: OutlineInputBorder(),
+                                               ),
+                                             ),
+                                             SizedBox(height: 10),
+                                             Align(
+                                               alignment: Alignment.centerRight,
+                                               child: ElevatedButton(
+                                                 onPressed: () {
+                                                   // Add logic to save the comment
+                                                   Navigator.pop(context);
+                                                 },
+                                                 child: Text('Submit'),
+                                               ),
+                                             ),
+                                           ],
+                                         ),
+                                       );
+                                     },
+                                   );
+                                 },
+                               ),
+
                                Icon(
                                  Icons.share,
                                  color: Colors.deepOrangeAccent,

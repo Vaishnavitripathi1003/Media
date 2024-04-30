@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mydiary/DemoTesting/ShortsUi/homeshrts.dart';
 import 'package:mydiary/Screens/DashBorad/dashboard.dart';
 import 'package:mydiary/Screens/Home/Profile.dart';
 
@@ -66,7 +67,7 @@ class _SearchState extends State<Search> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Dashboard()),
+                                      builder: (context) => HomeShorts()),
                                 );
                               },
                               child: Icon(

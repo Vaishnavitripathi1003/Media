@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:fwfh_webview/fwfh_webview.dart';
+import 'dart:core';
 
-import 'ContentScreen.dart';
-import 'package:flutter_swiper_3/flutter_swiper_3.dart';
-import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 class HomeShorts extends StatefulWidget {
   const HomeShorts({super.key});
 
@@ -11,6 +12,7 @@ class HomeShorts extends StatefulWidget {
 }
 
 class _HomeShortsState extends State<HomeShorts> {
+ late WebViewController _controller;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +20,9 @@ class _HomeShortsState extends State<HomeShorts> {
         child: Container(
           child: Stack(
             children: [
-              ContentScreen(),
+             Center(child: Container(
+                 height: double.infinity,
+                 child: WebView("https://www.youtube.com/shorts/4artdBqL-tE", aspectRatio: 15,js: true,)))
             ],
           ),
         ),

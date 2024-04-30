@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mydiary/DemoTesting/ShortsUi/homeshrts.dart';
 import 'package:mydiary/Screens/DashBorad/dashboard.dart';
 
 import 'Search.dart';
@@ -73,7 +74,7 @@ class _ProfileState extends State<Profile> {
                               onTap: (){
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => Search()),);
+                                  MaterialPageRoute(builder: (context) => HomeShorts()),);
                               },
                               child: CircleAvatar(
                                 child: Icon(
@@ -234,10 +235,14 @@ class _ProfileState extends State<Profile> {
                       children: [
                         CircleAvatar(
                           backgroundColor:Colors.blueAccent
-                          ,child: Icon(
-                          Icons.settings,
-                          color: Colors.white,
-                        ),
+                          ,child: GestureDetector(
+                            child: Icon(
+                            Icons.settings,
+                            color: Colors.white,),
+                          onTap: (){
+
+                          },
+                          ),
                         ),
                         SizedBox(width: 10,),
                         Text("Setting",style: TextStyle(

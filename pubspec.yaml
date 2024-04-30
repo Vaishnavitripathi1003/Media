@@ -41,6 +41,10 @@ dependencies:
   path: ^1.8.3
   flutter_swiper_3: ^3.0.0
   flutter_swiper_null_safety: ^1.0.2
+  webview_flutter: ^4.7.0
+  flutter_inappwebview: ^6.0.0
+  fwfh_webview: ^0.14.8
+
 
 dev_dependencies:
   flutter_test:

@@ -44,7 +44,9 @@ dependencies:
   webview_flutter: ^4.7.0
   flutter_inappwebview: ^6.0.0
   fwfh_webview: ^0.14.8
-
+  device_info: ^2.0.2
+  get: ^4.6.1
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:

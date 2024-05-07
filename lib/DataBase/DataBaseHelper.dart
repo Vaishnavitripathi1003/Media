@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -8,17 +9,28 @@ class DatabaseHelper {
   static final _databaseName = "MyDiary.db";
   static final _databaseVersion = 1;
   static Database? _database;
+  static  DatabaseHelper _instance = DatabaseHelper._createInstant();
+  
+
+  DatabaseHelper._createInstant();
+  factory DatabaseHelper() {
+    if(_instance==null)
+      {
+        _instance = DatabaseHelper._createInstant();
+      }
+    return _instance;
+  }
+  
 
   Future<Database?> get database async {
-    if (_database != null) return _database;
-    _database = await _initDatabase();
+    if (_database == null) _database = await _initDatabase();
     return _database;
   }
 
   // This method opens the database and creates it if it doesn't exist
-  Future _initDatabase() async {
+  Future<Database> _initDatabase() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentsDirectory.path, _databaseName);
+    String path = documentsDirectory.path + '/' + _databaseName;
     return await openDatabase(path, version: _databaseVersion, onCreate: _onCreate);
   }
 

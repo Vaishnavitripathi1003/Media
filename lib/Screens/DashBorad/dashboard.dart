@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mydiary/CustomWidget/CustomBottomComment.dart';
 import 'package:mydiary/DataBase/DataBaseHelper.dart';
+import 'package:mydiary/DeviceInfo/device_info.dart';
 import 'package:mydiary/Screens/Home/Profile.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -15,7 +17,7 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard>
     with SingleTickerProviderStateMixin {
-  final DatabaseHelper databaseHelper=DatabaseHelper();
+  final DatabaseHelper databaseHelper= DatabaseHelper();
   final List<String> tabTitles = [
     "Home",
     "Latest",
@@ -64,6 +66,8 @@ class _DashboardState extends State<Dashboard>
   late TabController _tabcontroller;
   int _currentIndex = 0;
   DatabaseHelper dbHelper = DatabaseHelper();
+  var _isKeyboardOpen;
+  Device_Info device_info=Device_Info();
 
   // Initialize the database
   //late TabController _tabcontroller;
@@ -71,17 +75,23 @@ class _DashboardState extends State<Dashboard>
   void initState() {
     // TODO: implement initState
     super.initState();
+    device_info.getDeviceId();
+    databaseHelper.database;
     _tabcontroller = TabController(length: tabTitles.length, vsync: this);
   }
 
+
   @override
   Widget build(BuildContext context) {
+    MediaQueryData mediaQuery = MediaQuery.of(context);
+    double keyboardHeight = mediaQuery.viewInsets.bottom;
+    _isKeyboardOpen = keyboardHeight > 0;
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return DefaultTabController(
       length: tabTitles.length,
       child: Scaffold(
-        resizeToAvoidBottomInset: true,
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.blue,
@@ -375,7 +385,9 @@ class _DashboardState extends State<Dashboard>
       ),
     );
   }
-
+  Future<String> getDeviceinfo(){
+ return device_info.getDeviceId();
+}
   Widget methodForView(BuildContext context) {
     return  Container(
       child: Column(
@@ -460,40 +472,7 @@ class _DashboardState extends State<Dashboard>
                                    showModalBottomSheet(
                                      context: context,
                                      builder: (BuildContext context) {
-                                       return Container(
-                                         padding: EdgeInsets.all(16.0),
-                                         child: Column(
-                                           mainAxisSize: MainAxisSize.min,
-                                           crossAxisAlignment: CrossAxisAlignment.start,
-                                           children: <Widget>[
-                                             Text(
-                                               'Add a comment',
-                                               style: TextStyle(
-                                                 fontSize: 20,
-                                                 fontWeight: FontWeight.bold,
-                                               ),
-                                             ),
-                                             SizedBox(height: 10),
-                                             TextField(
-                                               decoration: InputDecoration(
-                                                 hintText: 'Enter your comment...',
-                                                 border: OutlineInputBorder(),
-                                               ),
-                                             ),
-                                             SizedBox(height: 10),
-                                             Align(
-                                               alignment: Alignment.centerRight,
-                                               child: ElevatedButton(
-                                                 onPressed: () {
-                                                   // Add logic to save the comment
-                                                   Navigator.pop(context);
-                                                 },
-                                                 child: Text('Submit'),
-                                               ),
-                                             ),
-                                           ],
-                                         ),
-                                       );
+                                      return CustomBottomComment();
                                      },
                                    );
                                  },

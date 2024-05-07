@@ -3,6 +3,8 @@ import 'package:mydiary/DemoTesting/ShortsUi/OptionScreen.dart';
 
 import 'package:mydiary/Screens/DashBorad/dashboard.dart';
 
+import 'Screens/radioButton.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home:  const Dashboard(),
+      home:  const MultipleChoiceQuestions(),
       debugShowCheckedModeBanner: false,
     );
   }

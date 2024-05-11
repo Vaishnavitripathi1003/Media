@@ -1,23 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mydiary/Entity/MasterData.dart';
+import 'package:provider/provider.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import '../DataBase/DataBaseHelper.dart';
-import 'YoutubePlayerScreen.dart';
+import '../Entity/MasterData.dart';
+import '../Screens/Provider.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
-
+class YoutubePlayerScreen extends StatefulWidget {
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  _YoutubePlayerScreenState createState() => _YoutubePlayerScreenState();
 }
 
-
-
-class _SplashScreenState extends State<SplashScreen> {
+class _YoutubePlayerScreenState extends State<YoutubePlayerScreen> {
   List<MasterData> videoList = [];
-  late DatabaseHelper databaseHelper=DatabaseHelper();
   List<String> video_ID=["g_sfv9IVCu4","dQw4w9WgXcQ","kJQP7kiw5Fk","pTD9sT7QfdI","XGK84Poeynk"];
   List<String> Thumbnail=["https://img.youtube.com/vi/g_sfv9IVCu4/mqdefault.jpg","https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg","https://img.youtube.com/vi/kJQP7kiw5Fk/mqdefault.jpg","https://img.youtube.com/vi/pTD9sT7QfdI/mqdefault.jpg","https://img.youtube.com/vi/XGK84Poeynk/mqdefault.jpg"];
   List<String> Title=["Flutter Animation Tutorial","Ultimate Rickroll Compilation"," Luis Fonsi ft. Daddy Yankee","How to Make a Chocolate Cake","Introduction to Machine Learning"];
@@ -42,7 +37,6 @@ class _SplashScreenState extends State<SplashScreen> {
         mute: false,
       ),
     );
-    databaseHelper.initDatabase();
     getdata();
   }
 
@@ -86,6 +80,7 @@ class _SplashScreenState extends State<SplashScreen> {
                             child: Image.network(videoList[index].imagespath),
                             onTap: () {
                               _controller.load(videoList[index].Video_ID);
+                              _currentVideoId = videoList[index].Video_ID;
                               /*setState(() {
                                 _currentVideoId = videoList[index].Video_ID;
                               });*/
@@ -105,7 +100,6 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> getdata() async {
-    await databaseHelper.initDatabase();
     List<MasterData> tempList = [];
     for (var i = 0; i < video_ID.length; i++) {
       MasterData masterData = MasterData(

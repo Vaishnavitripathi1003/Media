@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mydiary/DemoTesting/ShortsUi/OptionScreen.dart';
 
 import 'package:mydiary/Screens/DashBorad/dashboard.dart';
+import 'package:mydiary/Screens/Home/home_screen.dart';
+import 'package:mydiary/Screens/Home/radio.dart';
+import 'package:mydiary/SplashToLogin/Splash.dart';
 
+import 'Screens/CustomPlayer.dart';
+import 'Screens/HomeScreen.dart';
 import 'Screens/radioButton.dart';
 
 void main() {
@@ -22,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home:  const MultipleChoiceQuestions(),
+      home:   SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

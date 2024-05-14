@@ -9,6 +9,7 @@ import 'package:mydiary/SplashToLogin/Splash.dart';
 import 'Screens/CustomPlayer.dart';
 import 'Screens/HomeScreen.dart';
 import 'Screens/radioButton.dart';
+import 'SplashToLogin/audiplayer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home:   SplashScreen(),
+      home:   BhajanPlayer(),
       debugShowCheckedModeBanner: false,
     );
   }

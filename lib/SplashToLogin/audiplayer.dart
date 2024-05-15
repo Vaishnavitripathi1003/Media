@@ -1,3 +1,4 @@
+/*
 import 'dart:ui';
 
 import 'package:audioplayers/audioplayers.dart';
@@ -34,13 +35,14 @@ class _PlayerPageState extends State<PlayerPage> with TickerProviderStateMixin {
     );
     audioPlayer = new AudioPlayer();
     audioCache = new AudioCache(fixedPlayer: audioPlayer);
- /*   audioPlayer.durationHandler = (d) => setState(() {
+   audioPlayer.durationHandler = (d) => setState(() {
       _duration = d;
     });
 
     audioPlayer.positionHandler = (p) => setState(() {
       _position = p;
-    });*/
+    });
+
   }
 
   @override
@@ -142,3 +144,4 @@ class _PlayerPageState extends State<PlayerPage> with TickerProviderStateMixin {
     );
   }
 }
+*/

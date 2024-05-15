@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mydiary/CameraPackage/Camera.dart';
 import 'package:mydiary/DemoTesting/ShortsUi/OptionScreen.dart';
 
 import 'package:mydiary/Screens/DashBorad/dashboard.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home:   BhajanPlayer(),
+      home:   CameraActivity(),
       debugShowCheckedModeBanner: false,
     );
   }

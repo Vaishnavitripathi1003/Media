@@ -11,6 +11,7 @@ import 'Screens/CustomPlayer.dart';
 import 'Screens/HomeScreen.dart';
 import 'Screens/radioButton.dart';
 import 'SplashToLogin/audiplayer.dart';
+import 'Youtubecopy.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home:   CameraActivity(),
+      home:   YouTubeClone(),
       debugShowCheckedModeBanner: false,
     );
   }
